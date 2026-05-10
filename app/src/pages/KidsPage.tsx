@@ -160,7 +160,7 @@ export default function KidsPage() {
               className="glass-card rounded-2xl p-6 cursor-pointer group"
               onClick={() => {
                 if (activity.action === 'boyama') {
-                  window.open('https://www.wwf.org.tr/cocuk/boyama/', '_blank')
+                  window.open('https://www.wwf.org.tr/cocuk/boyama/', '_blank', 'noopener,noreferrer')
                 } else {
                   setModalContent({ title: activity.title, detail: activity.detail || '' })
                 }

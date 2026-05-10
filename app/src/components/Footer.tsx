@@ -73,7 +73,7 @@ export default function Footer() {
                 <motion.a whileHover={{ scale: 1.1 }} href="#" className="p-2 rounded-lg bg-white/5 text-zinc-400 hover:text-green-400 hover:bg-white/10 transition-all">
                   <Github className="w-4 h-4" />
                 </motion.a>
-                <motion.a whileHover={{ scale: 1.1 }} href="https://habder.org" target="_blank" className="p-2 rounded-lg bg-white/5 text-zinc-400 hover:text-green-400 hover:bg-white/10 transition-all">
+                <motion.a whileHover={{ scale: 1.1 }} href="https://habder.org" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-white/5 text-zinc-400 hover:text-green-400 hover:bg-white/10 transition-all" aria-label="HABDER web sitesi">
                   <ExternalLink className="w-4 h-4" />
                 </motion.a>
               </div>
@@ -84,7 +84,7 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-white/5 text-center">
           <p className="text-zinc-600 text-sm">
             &copy; 2025 HABDER Çevre Veri Portalı. Tüm hakları saklıdır. |{' '}
-            <a href="https://habder.org" target="_blank" className="text-green-400/60 hover:text-green-400 transition-colors">habder.org</a>
+            <a href="https://habder.org" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-green-400 transition-colors">habder.org</a>
           </p>
         </div>
       </div>

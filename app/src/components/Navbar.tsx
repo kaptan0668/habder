@@ -1,20 +1,27 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Leaf, Search, User, Menu, X } from 'lucide-react'
 import { navItems } from '@/data/mockData'
+import SearchBar from './SearchBar'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const handleCitySearch = (query: string) => {
+    setSearchOpen(false)
+    navigate('/', { state: { city: query } })
+  }
 
   return (
     <motion.nav
@@ -90,12 +97,7 @@ export default function Navbar() {
             className="border-t border-white/5 overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-3">
-              <input
-                type="text"
-                placeholder="Şehir ara... (İstanbul, Ankara, İzmir)"
-                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-green-400/50"
-                autoFocus
-              />
+              <SearchBar onSearch={handleCitySearch} placeholder="Şehir ara... (İstanbul, Ankara, İzmir)" />
             </div>
           </motion.div>
         )}
